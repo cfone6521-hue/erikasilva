@@ -1,0 +1,46 @@
+/* =========================================
+   NANO WEBGPU — FUNDO ANIMADO
+========================================= */
+
+html {
+    background: #08070a;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    background: #08070a;
+}
+
+/* Canvas animado */
+#nano-webgpu {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.38;
+    mix-blend-mode: screen;
+}
+
+/* Conteúdo acima da animação */
+body > :not(#nano-webgpu) {
+    position: relative;
+    z-index: 2;
+}
+
+/* O fundo não interfere nos botões */
+button,
+a,
+video {
+    position: relative;
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    #nano-webgpu {
+        opacity: 0.15;
+    }
+}
